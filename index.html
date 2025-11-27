@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ritmo de Luta</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="press-any-key-screen">
+      <h1>Aperte qualquer tecla para continuar</h1>
+    </div>
+
+    <div id="start-screen">
+      <h1>Ritmo de Luta</h1>
+      <div class="difficulty-selector">
+        <label for="difficulty">Dificuldade:</label>
+        <select id="difficulty">
+          <option value="easy">Fácil</option>
+          <option value="medium" selected>Média</option>
+          <option value="hard">Difícil</option>
+        </select>
+      </div>
+      <button id="startButton">Começar</button>
+      <button id="howToPlayButton">Como Jogar</button>
+    </div>
+
+    <div id="how-to-play-overlay">
+      <div class="how-to-play-content">
+        <h2>Como Jogar</h2>
+        <ul>
+          <li>Pressione A S D F quando solicitado para atacar ou defender.</li>
+          <li>A barra especial (amarela) enche ao defender ou tomar dano.</li>
+          <li>
+            Quando a barra especial estiver cheia, pressione ESPAÇO para ativar
+            o ataque especial!
+          </li>
+          <li>
+            No especial, acerte a **sequência de 7 batidas** no ritmo certo!
+          </li>
+          <li>O dano final é baseado em quantos acertos você conseguir.</li>
+          <li>Cuidado: Se errar todos os 7, você toma um dano massivo!</li>
+        </ul>
+        <button id="closeHowToPlay">Fechar</button>
+      </div>
+    </div>
+
+    <div id="game-container">
+      <div id="low-health-overlay"></div>
+
+      <div class="health-bar-container player1">
+        <div class="health-label">Jogador</div>
+        <div class="health-bar" id="player1-health"></div>
+      </div>
+      <div class="health-bar-container player2">
+        <div class="health-label">CPU</div>
+        <div class="health-bar" id="player2-health"></div>
+      </div>
+      <div class="special-bar-container player1">
+        <div class="special-bar" id="player1-special"></div>
+      </div>
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+      <canvas id="effectsCanvas" width="800" height="400"></canvas>
+
+      <div id="timing-qte-container">
+        <div id="timing-qte-ring"></div>
+        <div id="timing-qte-target">
+          <span id="timing-qte-key">A</span>
+        </div>
+        <div id="qte-feedback-text"></div>
+      </div>
+      <div id="status-container">
+        <p id="action-message"></p>
+        <p id="required-key-display"></p>
+      </div>
+      <div id="controls-info">Teclas: A S D F | Espaço para especial</div>
+      <div id="time-bar-container">
+        <div id="time-bar"></div>
+      </div>
+
+      <div id="combo-counter"></div>
+    </div>
+
+    <div id="victory-screen" class="end-screen">
+      <div class="end-content">
+        <h2>Vitória!</h2>
+        <p>Parabéns, você venceu!</p>
+        <div class="end-buttons">
+          <button id="play-again-button">Jogar Novamente</button>
+          <button id="main-menu-button">Menu Principal</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="defeat-screen" class="end-screen">
+      <div class="end-content">
+        <h2>Derrota</h2>
+        <p>Você foi derrotado!</p>
+        <div class="end-buttons">
+          <button id="try-again-button">Tentar Novamente</button>
+          <button id="back-to-menu-button">Menu Principal</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
